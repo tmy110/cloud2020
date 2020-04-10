@@ -16,7 +16,7 @@ public class PaymentController {
 
     //http://127.0.0.1:8001/payment/create  {"serial":"6666"}
     @PostMapping(value = "/payment/create")
-    public CommonResult create(@RequestBody Payment payment) {
+    public CommonResult create(Payment payment) {
         int result = paymentService.create(payment);
         log.info("********插入结果：" + result);
         if (result > 0) {

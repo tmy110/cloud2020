@@ -14,13 +14,13 @@ public class PaymentController {
     @Resource
     private PaymentService paymentService;
 
-    //http://127.0.0.1:8001/payment/create  {"serial":"6666"}
+    //http://127.0.0.1:8001/payment/create?serial=1234
     @PostMapping(value = "/payment/create")
-    public CommonResult create(Payment payment) {
+    public CommonResult<Payment> create(@RequestBody Payment payment) {
         int result = paymentService.create(payment);
         log.info("********插入结果：" + result);
         if (result > 0) {
-            return new CommonResult(200, "插入结果", payment);
+            return new CommonResult(200, "插入结果", result);
         } else {
             return new CommonResult(444, "插入失败", null);
         }

@@ -14,8 +14,9 @@ public class PaymentController {
     @Resource
     private PaymentService paymentService;
 
+    //http://127.0.0.1:8001/payment/create  {"serial":"6666"}
     @PostMapping(value = "/payment/create")
-    public CommonResult create(Payment payment) {
+    public CommonResult create(@RequestBody Payment payment) {
         int result = paymentService.create(payment);
         log.info("********插入结果：" + result);
         if (result > 0) {
@@ -24,16 +25,17 @@ public class PaymentController {
             return new CommonResult(444, "插入失败", null);
         }
     }
-    
+
+    //http://127.0.0.1:8001/payment/get/1
     @GetMapping(value = "/payment/get/{id}")
     public CommonResult getPaymentById(@PathVariable("id") Long id) {
-
+        System.out.println("21");
         Payment paymentById = paymentService.getPaymentById(id);
-        log.info("********插入结果：" + paymentById);
+        log.info("插入结果：" + paymentById + " 你好呀！");
         if (paymentById != null) {
-            return new CommonResult(200, "查询成功", paymentById);
+            return new CommonResult(200, "查询成功！", paymentById);
         } else {
-            return new CommonResult(444, "没有对应的记录,查询id：" + id, null);
+            return new CommonResult(444, "没有对应的记录！查询id：" + id, null);
         }
     }
 

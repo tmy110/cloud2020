@@ -21,8 +21,8 @@ public class PaymentController {
     private PaymentService paymentService;
 
 
-    @Resource
-    private DiscoveryClient discoveryClient;
+//    @Resource
+//    private DiscoveryClient discoveryClient;
 
 
     //http://127.0.0.1:8001/payment/create?serial=1234
@@ -49,11 +49,11 @@ public class PaymentController {
             return new CommonResult(444, "没有对应的记录！查询id：" + id, null);
         }
     }
-    //服务发现 不管用
-    @GetMapping(value = "/payment/discovery")
-    public Object discovery() {
-//        discoveryClient.getIn
-        return null;
-    }
+//    //服务发现 不管用
+//    @GetMapping(value = "/payment/discovery")
+//    public Object discovery() {
+////        discoveryClient.getIn
+//        return null;
+//    }
 
 }

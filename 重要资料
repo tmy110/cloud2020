@@ -18,3 +18,15 @@ https://github.com/tmy110/cloud2020-1.git
 
 为解决的问题
 在centos7上安装zookeeper服务器 28~30课程
+
+
+复习eureka看
+cloud-provider-payment8001
+cloud-provider-payment8002
+cloud-eureka-server7001
+cloud-eureka-server7002
+cloud-consumer-order80
+
+复习zookeeper看
+cloud-consumerzk-order80
+cloud-provider-payment8004

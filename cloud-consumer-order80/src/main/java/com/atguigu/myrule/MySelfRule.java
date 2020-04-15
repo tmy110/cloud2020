@@ -8,8 +8,6 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 自定义负载均衡路由规则类
  *
- * @author zzyy
- * @date 2020/3/6 15:15
  **/
 @Configuration
 public class MySelfRule {

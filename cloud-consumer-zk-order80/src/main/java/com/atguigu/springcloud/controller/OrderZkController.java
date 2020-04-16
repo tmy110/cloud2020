@@ -18,7 +18,7 @@ public class OrderZkController {
 
 
     /**
-     * http://localhost/consumer/payment/zk
+     * http://localhost:8000/consumer/payment/zk
      *
      * @return
      */

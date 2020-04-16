@@ -19,6 +19,9 @@ https://github.com/tmy110/cloud2020-1.git
 为解决的问题
 在centos7上安装zookeeper服务器 28~30课程
 
+windows安装zookeeper（单机版）
+https://www.cnblogs.com/sunleejon/p/12422553.html
+
 
 复习eureka看
 cloud-provider-payment8001

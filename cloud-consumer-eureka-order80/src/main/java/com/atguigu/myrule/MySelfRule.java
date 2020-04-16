@@ -15,8 +15,8 @@ public class MySelfRule {
 
     @Bean
     public IRule myRule() {
-//        return new RoundRobinRule();//轮训
-        return new RandomRule();//随机
+        return new RoundRobinRule();//轮训
+//        return new RandomRule();//随机
 
     }
 }

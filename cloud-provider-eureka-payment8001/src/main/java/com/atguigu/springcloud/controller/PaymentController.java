@@ -6,9 +6,11 @@ import com.atguigu.springcloud.service.PaymentService;
 import com.netflix.discovery.DiscoveryClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
 @Slf4j
@@ -19,11 +21,12 @@ public class PaymentController {
 
     @Resource
     private PaymentService paymentService;
-
-
+//
+//    /**
+//     * 服务发现 获取服务信息
+//     */
 //    @Resource
 //    private DiscoveryClient discoveryClient;
-
 
     //http://127.0.0.1:8001/payment/create?serial=1234
     @PostMapping(value = "/payment/create")
@@ -49,11 +52,29 @@ public class PaymentController {
             return new CommonResult(444, "没有对应的记录！查询id：" + id, null);
         }
     }
-//    //服务发现 不管用
-//    @GetMapping(value = "/payment/discovery")
+
+//    /**
+//     * 服务发现
+//     *
+//     * @return
+//     */
+//    @GetMapping(value = "payment/discovery")
 //    public Object discovery() {
-////        discoveryClient.getIn
-//        return null;
+//
+//        List<String> services = discoveryClient.getServices();
+//        for (String element : services) {
+//            log.info("*****element:" + element);
+//        }
+//        // 一个微服务下的全部实例
+//        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
+//        for (ServiceInstance instance : instances) {
+//            log.debug(instance.getServiceId() + "\t" + instance.getHost() + "\t" + instance.getPort() + instance.getUri());
+//        }
+//        return this.discoveryClient;
 //    }
 
+    @GetMapping(value = "/payment/lb")
+    public String getPaymentLB() {
+        return serverPort;
+    }
 }

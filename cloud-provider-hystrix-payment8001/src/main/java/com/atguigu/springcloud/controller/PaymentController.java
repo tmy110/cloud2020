@@ -34,7 +34,7 @@ public class PaymentController {
 
     /**
      * 超时访问
-     *
+     * http://localhost:8001/payment/hystrix/timeout/31
      * @param id
      * @return
      */

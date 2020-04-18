@@ -25,17 +25,17 @@ public class PaymentService {
      * 超时访问
      * HystrixCommand:一旦调用服务方法失败并抛出了错误信息后,会自动调用@HystrixCommand标注好的fallbckMethod调用类中的指定方法
      * execution.isolation.thread.timeoutInMilliseconds:线程超时时间3秒钟
-     *
+     *超时和报错 服务会降级
      * @param id
      * @return
      */
-//    @HystrixCommand(fallbackMethod = "payment_TimeOutHandler", commandProperties = {
-//            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000")
-//    })
+    @HystrixCommand(fallbackMethod = "payment_TimeOutHandler", commandProperties = {
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000")
+    })
     public String paymentInfo_TimeOut(Integer id) {
-        ///int age = 10 / 0;
+//        int age = 10 / 0;
         // 暂停N秒钟
-        int timeNumber = 3;
+        int timeNumber = 5;
         try {
 
             TimeUnit.SECONDS.sleep(timeNumber);
@@ -52,9 +52,9 @@ public class PaymentService {
      * @param id
      * @return
      */
-//    public String payment_TimeOutHandler(Integer id) {
-//        return "线程池:" + Thread.currentThread().getName() + " 系统繁忙或运行错误,请稍后重试,id:" + id + "\t" + "o(╥﹏╥)o";
-//    }
+    public String payment_TimeOutHandler(Integer id) {
+        return "线程池:" + Thread.currentThread().getName() + " 系统繁忙或运行错误,请稍后重试,id:" + id + "\t" + "o(╥﹏╥)o";
+    }
 
     //====服务熔断
 

@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 @Service
 public class PaymentService {
+    //=====服务降级
 
     /**
      * 正常访问
@@ -25,7 +26,8 @@ public class PaymentService {
      * 超时访问
      * HystrixCommand:一旦调用服务方法失败并抛出了错误信息后,会自动调用@HystrixCommand标注好的fallbckMethod调用类中的指定方法
      * execution.isolation.thread.timeoutInMilliseconds:线程超时时间3秒钟
-     *超时和报错 服务会降级
+     * 超时和报错 服务会降级
+     *
      * @param id
      * @return
      */
@@ -60,27 +62,28 @@ public class PaymentService {
 
     /**
      * 在10秒窗口期中10次请求有6次是请求失败的,断路器将起作用
+     *
      * @param id
      * @return
      */
-//    @HystrixCommand(
-//            fallbackMethod = "paymentCircuitBreaker_fallback", commandProperties = {
-//            @HystrixProperty(name = "circuitBreaker.enabled", value = "true"),// 是否开启断路器
-//            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"),// 请求次数
-//            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"),// 时间窗口期/时间范文
-//            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60")// 失败率达到多少后跳闸
-//    }
-//    )
-//    public String paymentCircuitBreaker(@PathVariable("id") Integer id) {
-//        if (id < 0) {
-//            throw new RuntimeException("*****id不能是负数");
-//        }
-//        String serialNumber = IdUtil.simpleUUID();
-//        return Thread.currentThread().getName() + "\t" + "调用成功,流水号:" + serialNumber;
-//    }
-//
-//    public String paymentCircuitBreaker_fallback(@PathVariable("id") Integer id) {
-//        return "id 不能负数,请稍后重试,o(╥﹏╥)o id:" + id;
-//    }
+    @HystrixCommand(
+            fallbackMethod = "paymentCircuitBreaker_fallback", commandProperties = {
+            @HystrixProperty(name = "circuitBreaker.enabled", value = "true"),// 是否开启断路器
+            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"),// 请求次数
+            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"),// 时间窗口期/时间范文
+            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60")// 失败率达到多少后跳闸
+    }
+    )
+    public String paymentCircuitBreaker(@PathVariable("id") Integer id) {
+        if (id < 0) {
+            throw new RuntimeException("*****id不能是负数");
+        }
+        String serialNumber = IdUtil.simpleUUID();//hutool
+        return Thread.currentThread().getName() + "\t" + "调用成功,流水号:" + serialNumber;
+    }
+
+    public String paymentCircuitBreaker_fallback(@PathVariable("id") Integer id) {
+        return "id 不能负数,请稍后重试,o(╥﹏╥)o id:" + id;
+    }
 
 }

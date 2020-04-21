@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 网关配置
+ * test
  *
  */
 @Configuration

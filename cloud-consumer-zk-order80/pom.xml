@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-consumerzk-order80</artifactId>
+    <artifactId>cloud-consumer-zk-order80</artifactId>
     <description>订单消费者之注册中心zookeeper</description>
 
     <dependencies>

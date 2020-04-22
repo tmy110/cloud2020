@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.config.server.EnableConfigServer;
 
 /**
+ * 总控 post刷新http://localhost:3344/actuator/bus-refresh
+ *
  * http://config-3344.com:3344/master/config-dev.yml
  */
 @SpringBootApplication

@@ -51,7 +51,7 @@ cloud-provider-eureka-payment8001
 cloud-consumer-eureka-order80
 cloud-eureka-server7001
 -------------------------------------
-15.SpringCloud Stream消息驱动 还没复习完！！！！！
+15.SpringCloud Stream消息驱动 还没复习完！！！！！！
 是什么:屏蔽底层消息中间件的差异，降低切换版本，统一消息的编程模型
 cloud-stream-rabbitmq-provider8801
 cloud-stream-rabbitmq-consumer8803

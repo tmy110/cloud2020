@@ -10,6 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>cloud-provider-eureka-payment8001</artifactId>
     <dependencies>
+        <!--包含了sleuth+zipki-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
         <!-- eureka-client-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

@@ -90,7 +90,7 @@ public class PaymentController {
         return serverPort;
     }
     /**
-     * 链路跟踪
+     * 测试分布式请求链路跟踪
      *
      * @return
      */

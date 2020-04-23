@@ -37,3 +37,16 @@ cloud-provider-payment8004
 20200417 42_Ribbon之手写轮询算法 学习遇到问题
 64_Hystrix图形化Dashboard监控实战 不能监控
 
+第一:名词发音:
+16.SpringCloud Sleuth分布式请求链路追踪
+sleuth [sluːθ]   zipkin [zei pu ken]
+
+第二:复习指南
+SpringCloud Sleuth分布式请求链路追踪
+cloud-provider-eureka-payment8001
+cloud-consumer-eureka-order80
+cloud-eureka-server7001
+
+
+
+

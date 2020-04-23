@@ -45,7 +45,7 @@ public class OrderController {
         }
     }
     /**
-     * 链路跟踪 zipkin+sleuth
+     * 测试分布式请求链路跟踪 zipkin+sleuth
      * http://localhost:8000/consumer/payment/zipkin
      *
      * @return

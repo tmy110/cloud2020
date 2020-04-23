@@ -12,7 +12,7 @@
     <artifactId>cloud-consumer-eureka-order80</artifactId>
 
     <dependencies>
-        <!--包含了sleuth+zipkin-->
+        <!--包含了sleuth+zipkin分布式请求链路跟踪-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zipkin</artifactId>

@@ -36,6 +36,8 @@ cloud-provider-payment8004
 
 20200417 42_Ribbon之手写轮询算法 学习遇到问题
 64_Hystrix图形化Dashboard监控实战 不能监控
+107_Nacos持久化切换配置.mp4 无法持久化
+
 
 第一:名词发音:
 16.SpringCloud Sleuth分布式请求链路追踪
@@ -56,6 +58,11 @@ cloud-eureka-server7001
 cloud-stream-rabbitmq-provider8801
 cloud-stream-rabbitmq-consumer8803
 cloud-stream-rabbitmq-consumer8802
+
+linux安装nacos
+tar -zxvf nacos-server-1.1.4.tar.gz 其实是个解压命令
+cp -r nacos /root/develop/nacos/mynacos 拷贝一份
+
 
 
 
